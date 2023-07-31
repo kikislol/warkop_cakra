@@ -1,0 +1,15 @@
+services:
+    kobule:
+        container_name: node_kobule
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        volumes:
+            - ./:/app
+            - /app/node_modules
+            # - /app/.nextdocker -v
+        ports:
+            - 3001:3000
+        # environment:
+        #   - CHOKIDAR_USEPOLLING=true
