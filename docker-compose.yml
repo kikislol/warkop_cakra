@@ -1,6 +1,6 @@
 services:
-    kobule:
-        container_name: node_kobule
+    warkop_cakra:
+        # container_name: node_warkop_cakra
         build:
             context: .
             dockerfile: Dockerfile
