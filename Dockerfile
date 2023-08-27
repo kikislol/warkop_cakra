@@ -1,21 +1,25 @@
 FROM node:18.15-alpine3.17 AS base 
 
-RUN npm i -g pnpm
+# RUN npm i yarn
 
 FROM base AS dependencies
 
 WORKDIR /app
-COPY ./package*.json pnpm-lock.yaml ./
+COPY ./package*.json ./
 ENV PATH /app/node_modules/.bin:$PATH
-RUN pnpm install
+RUN yarn install
 
 FROM base AS build
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 EXPOSE 3000
+RUN yarn build
 
-CMD ["pnpm","dev"]
+
+# CMD ["yarn", "dev"]
+CMD ["yarn","start"]
+
 
 # Commande to run 
 

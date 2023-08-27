@@ -22,7 +22,11 @@ export default function NavBar() {
                 <Navbar.Toggle aria-controls="main-navbar" />
                 <Navbar.Collapse id="main-navbar">
                     <Nav>
-                        <Nav.Link href="/hello" active={pathName === "/hello"}>
+                        <Nav.Link
+                            as={Link}
+                            href="/hello"
+                            active={pathName === "/hello"}
+                        >
                             Hello
                         </Nav.Link>
                     </Nav>
